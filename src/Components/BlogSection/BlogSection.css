@@ -1,0 +1,18 @@
+.blog-section__cards-wrapper{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: .8rem;
+}
+
+.blog-section__toggle-div{
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid #000;  
+    margin-bottom: .4rem;
+}
+
+.blog-section__toggle-div span{
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
