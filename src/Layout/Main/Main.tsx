@@ -1,4 +1,3 @@
-import './Main.css'
 import React, { useEffect, useState } from 'react';
 import db from '../../db/db.json'
 import { IPosts } from '../../Types/Interfaces/Interfaces';
@@ -22,14 +21,18 @@ const Main = () => {
   }, []);
 
   return (
-    <main className="main">
-      <h2>the</h2>
-      <h1>teeny tiny blog</h1>
-      {topics.map((topic, i) =>
-        <section className='main__sections'>
-          <BlogSection posts={posts} tagValue={topic} />
-        </section>
-      )}
+    <main className=" p-5  bg-gray-200 flex flex-col">
+      <div className='flex flex-col justify-center items-center'>
+        <h2 className='text-3xl text-center my-3'>the</h2>
+        <h1 className='text-6xl text-center px-4 mb-9'>Teeny-Tiny Blog</h1>
+      </div>
+      <div className='mx-auto'>
+        {topics.map((topic, i) =>
+          <section className='mt-8 max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl'>
+            <BlogSection posts={posts} tagValue={topic} />
+          </section>
+        )}
+      </div>
     </main>
 
   );

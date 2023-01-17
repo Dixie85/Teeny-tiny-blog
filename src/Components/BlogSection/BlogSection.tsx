@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { IPosts } from '../../Types/Interfaces/Interfaces'
 import Card from '../Card/Card'
-import './BlogSection.css'
 
 interface IBlogSection {
   posts: IPosts[],
@@ -14,13 +13,13 @@ const BlogSection = ({ posts, tagValue }: IBlogSection) => {
   const handleToggle = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => setIsHidden((prev) => !prev)
 
   return (
-    <section className='blog-section'>
-      <div className='blog-section__toggle-div' onClick={handleToggle}>
+    <section className=''>
+      <div className=' flex border bg-zinc-100 border-neutral-300 cursor-pointer' onClick={handleToggle}>
         <h3>{tagValue}</h3>
-        {isHidden ? <span>◁</span> : <span>▽</span>}
+        {isHidden ? <span className='ml-auto mr-2 '>◁</span > : <span className='ml-auto mr-2'>▽</span>}
       </div>
       {isHidden ? <></> :
-        <section className='blog-section__cards-wrapper'>
+        <section className=' md:grid grid-cols-2 gap-5 xl:grid-cols-3 bg-neutral-300 p-4  rounded-b-sm shadow-xl'>
           {filteredPostByTag.map((post, i) => <Card key={i} post={post} />)}
         </section>}
     </section>
