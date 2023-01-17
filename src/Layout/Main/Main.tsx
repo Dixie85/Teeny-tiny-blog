@@ -21,7 +21,7 @@ const Main = () => {
   }, []);
 
   return (
-    <main className="h-screen p-5  bg-gray-200 flex flex-col ">
+    <main className="min-h-screen p-5  bg-gray-200 flex flex-col ">
       <div className='flex flex-col justify-center items-center'>
         <h2 className='text-3xl text-center my-3'>the</h2>
         <h1 className='text-6xl text-center px-4 mb-9'>Teeny-Tiny Blog</h1>
