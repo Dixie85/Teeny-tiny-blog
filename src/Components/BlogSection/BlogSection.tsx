@@ -14,7 +14,7 @@ const BlogSection = ({ posts, tagValue }: IBlogSection) => {
 
   return (
     <section className=''>
-      <div className=' flex border bg-zinc-100 border-neutral-300 cursor-pointer' onClick={handleToggle}>
+      <div className=' flex border bg-zinc-100 border-neutral-300 cursor-pointer min-w-[384px] md:min-w-[672px] lg:min-w-[896px] xl:min-w-[1024px]' onClick={handleToggle}>
         <h3>{tagValue}</h3>
         {isHidden ? <span className='ml-auto mr-2 '>◁</span > : <span className='ml-auto mr-2'>▽</span>}
       </div>
