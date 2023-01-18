@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import db from '../../db/db.json'
 import { IPosts } from '../../Types/Interfaces/Interfaces';
 import BlogSection from '../../Components/BlogSection/BlogSection';
+import { topics } from '../../constants';
 // import axios from 'axios';
 
-const topics = ['Classic', 'Magical', 'Fiction', 'Love', 'Mystery']
+// const topics = ['Classic', 'Magical', 'Fiction', 'Love', 'Mystery']
 
 const Main = () => {
   const [posts, setPosts] = useState<IPosts[]>([{} as IPosts])
@@ -29,7 +30,7 @@ const Main = () => {
       <div className='mx-auto'>
         {topics.map((topic, i) =>
           <section className='mt-8 max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl'>
-            <BlogSection posts={posts} tagValue={topic} />
+            <BlogSection posts={posts} tagValue={topic.name} />
           </section>
         )}
       </div>
