@@ -1,6 +1,7 @@
 import { CommentsProvider } from './context/CommentsContext';
 import { PostsProvider } from './context/PostsContext';
 import { UsersProvider } from './context/UsersContext';
+import Footer from './Layout/Footer/Footer';
 import Header from './Layout/Header/Header';
 import Main from './Layout/Main/Main';
 
@@ -15,7 +16,7 @@ function App() {
           </PostsProvider>
         </UsersProvider>
       </CommentsProvider>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
