@@ -38,7 +38,7 @@ const Main = () => {
         )}
       </div>
       <a href="#n">
-        <button className='fixed bottom-20 right-1 text-5xl p-2 border rounded-3xl border-black cursor-pointer'><FaRegHandPointer /></button>
+        <button className='fixed bottom-20 right-1 text-5xl p-2 border rounded-3xl border-gray-300 bg-gradient-to-t from-blue-200 to-green-100  cursor-pointer hover:shadow-md shadow-blue-900'><FaRegHandPointer /></button>
       </a>
     </main>
 
