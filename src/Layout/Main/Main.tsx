@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import db from '../../db/db.json'
-import { IPosts } from '../../Types/Interfaces/Interfaces';
+import React, { useContext, useEffect } from 'react';
 import BlogSection from '../../Components/BlogSection/BlogSection';
 import { topics } from '../../constants';
-// import axios from 'axios';
+import PostsContext from '../../context/PostsContext';
+import UsersContext from '../../context/UsersContext';
+import CommentsContext from '../../context/CommentsContext';
+import { fetchComments, fetchPosts, fetchUsers } from '../../Services/Utilities/fetchDataFun';
 
-// const topics = ['Classic', 'Magical', 'Fiction', 'Love', 'Mystery']
 
 const Main = () => {
-  const [posts, setPosts] = useState<IPosts[]>([{} as IPosts])
-  console.log(posts);
-
+  const { setPosts } = useContext(PostsContext);
+  const { setUsers } = useContext(UsersContext);
+  const { setComments } = useContext(CommentsContext);
 
   useEffect(() => {
     const fetchFun = async () => {
-      const data = db;
-      // console.log(data);
-      setPosts(prev => [...data.posts])
+      const postsData = await fetchPosts()
+      const userData = await fetchUsers()
+      const commentsData = await fetchComments()
+      setPosts(() => postsData)
+      setUsers(() => userData)
+      setComments(() => commentsData)
     }
     fetchFun()
   }, []);
@@ -24,14 +27,12 @@ const Main = () => {
   return (
     <main className="min-h-screen p-5  bg-gray-200 flex flex-col ">
       <div className='flex flex-col justify-center items-center'>
-        <h2 className='text-3xl text-center my-3'>the</h2>
+        <span className='text-3xl text-center my-3'>the</span>
         <h1 className='text-6xl text-center px-4 mb-9'>Teeny-Tiny Blog</h1>
       </div>
       <div className='mx-auto'>
         {topics.map((topic, i) =>
-          <section className='mt-8 max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl'>
-            <BlogSection posts={posts} tagValue={topic.name} />
-          </section>
+          <BlogSection tagValue={topic.name} />
         )}
       </div>
     </main>
